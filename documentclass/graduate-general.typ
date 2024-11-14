@@ -92,7 +92,7 @@
 
 
   // Headings
-  show heading: i-figured.reset-counters.with(extra-kinds: ("algorithm",))
+  show heading: i-figured.reset-counters.with(extra-kinds: ("algorithm", "listing"))
 
   set heading(numbering: "1.1")
   show heading.where(level: 1): set text(size: 字号.小三)
@@ -110,11 +110,12 @@
 
   // Reference
   show: show-set-supplement
-  show figure: i-figured.show-figure.with(extra-prefixes: (algorithm: "alg:"))
+  show figure: i-figured.show-figure.with(extra-prefixes: (algorithm: "alg:", listing: "lst:"))
   show math.equation.where(block: true): i-figured.show-equation
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): set figure(supplement: [算法])
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
+  show figure.where(kind: "listing"): set figure(supplement: [Listing])
 
   show: show-bilingual-bibliography
   doc
