@@ -115,7 +115,7 @@
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): set figure(supplement: [算法])
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
-  show figure.where(kind: "listing"): set figure(supplement: [Listing])
+  show figure.where(kind: "listing"): set figure(supplement: [代码])
 
   show: show-bilingual-bibliography
   doc
