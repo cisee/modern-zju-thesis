@@ -9,25 +9,36 @@
   right: none,
   center: none,
 ) = {
-  set text(font: font, size: size)
-  locate(loc => {
-    if not (query(<mzt:no-header-footer>, loc).filter(el => el.location().page() == loc.page()) != ()) {
+  context {
+    if query(<mzt:no-header-footer>).filter(el => el.location().page() == here().page()) == () {
+      set text(font: font, size: size)
       stack(
         spacing: spacing,
         grid(
-          columns: (1fr, 1fr, 1fr),
+          columns: (
+            1fr,
+            if center == none {
+              0.01fr
+            } else {
+              1fr
+            },
+            1fr,
+          ),
           align: (alignment.left, alignment.center, alignment.right),
           left, center, right,
         ),
         line(length: 100%, stroke: stroke),
       )
     }
-
-  })
+  }
 }
 
-#let footer(left: none, right: none, center: none) = locate(loc => {
-  if not (query(<mzt:no-header-footer>, loc).filter(el => el.location().page() == loc.page()) != ()) {
+#let footer(
+  left: none,
+  right: none,
+  center: none
+) = context {
+  if query(<mzt:no-header-footer>).filter(el => el.location().page() == here().page()) == () {
     let fleft(numbering) = {
       if type(left) == function {
         left(numbering)
@@ -63,4 +74,4 @@
       )
     ]
   }
-})
+}
