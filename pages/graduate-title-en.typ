@@ -82,6 +82,7 @@
           ..info.reviewer-en.enumerate(start: 0).map(v => ([Thesis reviewer #(v.at(0)+1):], v.at(1))).flatten(),
           grid.cell(stroke: none)[], grid.cell(stroke: none)[],
         )
+        #v(-1em)
         #grid(
           columns: (auto, 15em),
           align: (end, center),
