@@ -8,7 +8,7 @@
 #import "../utils/fonts.typ": *
 #import "../utils/header.typ": header, footer
 #import "../utils/fakebold.typ": show-cn-fakebold
-#import "../utils/indent-first-par.typ": indent-first-par
+// #import "../utils/indent-first-par.typ": indent-first-par
 #import "../utils/supplement.typ": show-set-supplement
 #import "../utils/twoside.typ": show-twoside-pagebreak, twoside-numbering-footer, twoside-pagebreak
 #import "../utils/near-chapter.typ": near-chapter
@@ -22,14 +22,15 @@
 
 #let show-outline-indent(s) = {
 
-  show outline.entry: it => {
+  show outline.entry.where(level: 1): set text(weight: "bold")
+  // show outline.entry: it => {
 
-    if it.level == 1 {
-      text(weight: "bold", it)
-    } else {
-      h(1em * (it.level - 1)) + it
-    }
-  }
+  //   if it.level == 1 {
+  //     text(weight: "bold", it)
+  //   } else {
+  //     h(1em * (it.level - 1)) + it
+  //   }
+  // }
   s
 }
 
@@ -84,8 +85,9 @@
   )
 
   // Paragraph and text
-  set par(leading: 1.3em, first-line-indent: 2em, justify: true)
-  show: indent-first-par
+  set par(leading: 1.3em, first-line-indent: (amount: 2em, all: true), justify: true)
+  // set par(leading: 1.3em, first-line-indent: 2em, justify: true)
+  // show: indent-first-par
   set text(font: 字体.仿宋, size: 字号.小四, lang: "zh")
   show: show-cn-fakebold
   set underline(offset: 0.2em)
