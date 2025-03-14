@@ -8,6 +8,7 @@
   indent-first-par: true,
   titlelevel: 2,
   bodytext-settings: (size: 字号.四号),
+  custom_leading: (),
   pagetitle,
   s,
 ) = {
@@ -26,7 +27,7 @@
     )
 
     block(width: 100%)[
-      #set par(justify: true)
+      #set par(justify: true, ..custom_leading)
       #set text(..bodytext-settings)
       // #if indent-first-par {
       //   fake-par
